@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visite index{% endblock %}
+
+{% block body %}
+    <h3>Gestion des Visites Dans les centres de Soins index</h3>
+      <a class="btn btn-outline-success"  href="{{ path('visite_new') }}">Ajouter</a>
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateVisite</th>
+                <th>Cercle</th>
+                <th>Commune</th>
+                <th>Douar</th>
+                <th>Centre</th>
+                <th>Utilisateur</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for visite in visites %}
+            <tr>
+                <td>{{ visite.id }}</td>
+                <td>{{ visite.dateVisite ? visite.dateVisite|date('Y-m-d') : '' }}</td>
+                <td>{{ visite.cercle }}</td>
+                <td>{{ visite.commune }}</td>
+                <td>{{ visite.douar }}</td>
+                <td>{{ visite.centre }}</td>
+                <td>{{ visite.Utilisateur }}</td>
+                <td>
+                    <a class="btn btn-outline-success" href="{{ path('visite_show', {'id': visite.id}) }}">Afficher</a>
+                    <a class="btn btn-outline-danger" href="{{ path('visite_edit', {'id': visite.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

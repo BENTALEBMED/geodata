@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mere{% endblock %}
+
+{% block body %}
+    <h1>Mere</h1>
+
+    <table  class="table  table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mere.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ mere.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ mere.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ mere.tel }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ mere.age }}</td>
+            </tr>            
+           
+
+           
+
+
+        </tbody>
+    </table>
+    <hr>
+    
+    <br>
+    <br>
+    <br>
+    <a class="btn btn-outline-success" href="{{ path('mere_index') }}">Retour à la liste</a>   
+    {{ include('mere/_delete_form.html.twig') }}
+{% endblock %}

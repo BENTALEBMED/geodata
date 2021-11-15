@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mise à jours Utilisateur</h5>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Cordial</th>
+                <td>{{ user.cordial }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Fonction</th>
+                <td>{{ user.fonction }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ user.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email }}</td>
+            </tr>
+            <tr>
+                <th>Centre</th>
+                <td>{{ user.centre }}</td>
+            </tr>
+            <tr>
+                <th>Compte</th>
+                <td>{{ user.compte }}</td>
+            </tr>
+            <tr>
+                <th>MotPasse</th>
+                <td>{{ user.motPasse }}</td>
+            </tr>
+            <tr>
+                <th>Role</th>
+                <td>{{ user.role }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+
+    </div>
+    </div>
+{% endblock %}

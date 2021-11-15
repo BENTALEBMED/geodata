@@ -1,0 +1,58 @@
+{{ form_start(form) }}
+     <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.enfant, "SMI :", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.enfant) }}
+            <div class="col-sm-1">
+                {# Génération de l'input. #}
+                {{ form_widget(form.enfant, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.dateConsultation, "Date Consultation :", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.dateConsultation) }}
+            <div class="col-sm-2">
+                {# Génération de l'input. #}
+                {{ form_widget(form.dateConsultation, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.poids, "Poids (Kg) :", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.poids) }}
+            <div class="col-sm-1">
+                {# Génération de l'input. #}
+                {{ form_widget(form.poids, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.taille, "Taille(Cm) :", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.taille) }}
+            <div class="col-sm-1">
+                {# Génération de l'input. #}
+                {{ form_widget(form.taille, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+         <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.motif, "Motif :", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.motif) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.motif, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        
+    <button class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Standards{% endblock %}
+
+{% block body %}
+    <h1>Standards</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ standard.id }}</td>
+            </tr>
+            <tr>
+                <th>YearMonth</th>
+                <td>{{ standard.yearMonth }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ standard.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Month</th>
+                <td>{{ standard.month }}</td>
+            </tr>
+            <tr>
+                <th>L</th>
+                <td>{{ standard.l }}</td>
+            </tr>
+            <tr>
+                <th>M</th>
+                <td>{{ standard.m }}</td>
+            </tr>
+            <tr>
+                <th>S</th>
+                <td>{{ standard.s }}</td>
+            </tr>
+            <tr>
+                <th>Sd</th>
+                <td>{{ standard.sd }}</td>
+            </tr>
+            <tr>
+                <th>N3sd</th>
+                <td>{{ standard.n3sd }}</td>
+            </tr>
+            <tr>
+                <th>N2sd</th>
+                <td>{{ standard.n2sd }}</td>
+            </tr>
+            <tr>
+                <th>N1sd</th>
+                <td>{{ standard.n1sd }}</td>
+            </tr>
+            <tr>
+                <th>Median</th>
+                <td>{{ standard.median }}</td>
+            </tr>
+            <tr>
+                <th>P1sd</th>
+                <td>{{ standard.p1sd }}</td>
+            </tr>
+            <tr>
+                <th>P2sd</th>
+                <td>{{ standard.p2sd }}</td>
+            </tr>
+            <tr>
+                <th>P3sd</th>
+                <td>{{ standard.p3sd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('standards_index') }}">back to list</a>
+
+    <a href="{{ path('standards_edit', {'id': standard.id}) }}">edit</a>
+
+    {{ include('standards/_delete_form.html.twig') }}
+{% endblock %}

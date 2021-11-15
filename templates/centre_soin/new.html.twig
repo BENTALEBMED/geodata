@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CentreSoin{% endblock %}
+
+{% block body %}
+    <h1>Create new CentreSoin</h1>
+
+    {{ include('centre_soin/_form.html.twig') }}
+
+    <a href="{{ path('centre_soin_index') }}">back to list</a>
+{% endblock %}

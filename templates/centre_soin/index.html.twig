@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CentreSoin index{% endblock %}
+
+{% block body %}
+    <h1>Gestion Centre Soins</h1>
+    <a class="btn btn-outline-success" href="{{ path('centre_soin_new') }}">Ajouter</a>
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Type</th>
+                <th>Commune</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_soin in centre_soins %}
+            <tr>
+                <td>{{ centre_soin.id }}</td>
+                <td>{{ centre_soin.nom }}</td>
+                <td>{{ centre_soin.type }}</td>
+                <td>{{ centre_soin.commune }}</td>
+                <td>
+                    <a class="btn btn-outline-success" href="{{ path('centre_soin_show', {'id': centre_soin.id}) }}">Afficher</a>
+                    <a class="btn btn-outline-success" href="{{ path('centre_soin_edit', {'id': centre_soin.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Standards{% endblock %}
+
+{% block body %}
+    <h1>Create new Standards</h1>
+
+    {{ include('standards/_form.html.twig') }}
+
+    <a href="{{ path('standards_index') }}">back to list</a>
+{% endblock %}

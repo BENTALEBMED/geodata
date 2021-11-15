@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Mise à jours Utilisateur</h5>
+
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('user_index') }}">back to list</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+
+    </div>
+    </div>
+{% endblock %}

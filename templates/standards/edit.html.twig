@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Standards{% endblock %}
+
+{% block body %}
+    <h1>Edit Standards</h1>
+
+    {{ include('standards/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('standards_index') }}">back to list</a>
+
+    {{ include('standards/_delete_form.html.twig') }}
+{% endblock %}

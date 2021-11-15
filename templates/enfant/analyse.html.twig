@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Analyse Données{% endblock %}
+
+ {% block stylesheets %}
+ 
+  <link href="<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />">
+ 
+ {% endblock %}
+
+
+{% block body %}
+    <h3>Analyse Données </h3>
+   
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <canvas id="myChart" width="500" height="500"></canvas>
+    </div>
+    <div class="col">
+      2 of 2
+    </div>
+  </div>
+  
+</div>
+{{dump(nomcercle)}} 
+{{dump(nombreretard)}} 
+           
+
+    
+{% endblock %}
+
+
+  {% block javascripts %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: {{nomcercle|raw}},
+        datasets: [{
+            label: 'Total tous les Cercles',
+            data: {{nombreretard|raw}},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+  {% endblock %}
+
+  

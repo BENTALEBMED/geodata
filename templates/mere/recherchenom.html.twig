@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche par nom{% endblock %}
+
+{% block body %}
+   
+    
+   {% if f is defined %}
+         
+         <h4>Recherche par Nom (Parent)</h4>        
+         {{ form_start(f) }}
+         {{ form_label(f.nom) }}
+         {{ form_errors(f.nom) }}
+         {{ form_widget(f.nom) }}
+         <input class="btn btn-info" type="submit" name="recherche" value="Recherche" id="recherche" />
+         {{ form_end(f) }}
+     {% endif %}
+     
+    
+    {% if message != '' %}
+        <div class="alert alert-error" align="center">
+         {{ message }}        
+        </div>
+    {% endif %}
+    {% if meres is empty %}
+        <div class="alert alert-error" align="center">        
+       
+        </div>
+
+    {% else   %}
+
+       <table class="table  table-striped">
+        <thead>
+            <tr>
+                
+                <th>Nom Prénom(Parent)</th>                
+                <th>Age ou Date Naissance(Mère)</th>               
+               
+                 <th>Télephone</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        
+        {% for mere in meres %}
+            <tr>
+                
+                <td>{{ mere.nom }} {{ mere.prenom }}</td>                
+                <td>{{ mere.age }}</td>               
+              
+                 <td>{{ mere.tel }}</td>               
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="18">no records found</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+
+    {% endif %}
+
+    
+
+{% endblock %}

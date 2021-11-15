@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Données de la Mère{% endblock %}
+
+{% block body %}
+    <h1>Modifier Données de la Mère</h1>
+     {{ include('mere/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <a class="btn btn-outline-success" href="{{ path('mere_index') }}">Retour à la liste</a>
+
+    {{ include('mere/_delete_form.html.twig') }}
+{% endblock %}

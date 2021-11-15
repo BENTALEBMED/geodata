@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste retard croissance {% endblock %}
+
+{% block body %}
+    <h3>Liste retard croissance</h3>
+    
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                <th>Cercle</th>
+                <th>Commune</th>
+                <th>Douar</th>
+                <th>Date Prise Mesure</th>
+                <th>SMI</th>
+                <th>Nom Prenom</th>                
+                <th>Sexe</th>
+                <th>Date Naissance</th>                          
+                <th>Accouchement</th>
+                <th>Durree Allaitement (mois)</th> 
+                <th>Centre Soins</th>   
+                <th>Age(en jours)</th>              
+                <th>Poids(Kg)</th>
+                <th>Taille(Cm)</th>
+                <th>Retard de croissance(Oui/Non)</th>
+                 <th>Retard grave(Oui/Non)</th>
+                 
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for enfant in enfants %}
+            <tr>
+                 <td>{{ enfant.douars.cercle }}</td>
+                 <td>{{ enfant.douars.commune }}</td>
+                <td>{{ enfant.douars.nom }}</td>
+                {% for consultation in enfant.consultations %}
+                        <td>{{consultation.dateConsultation|date('d-m-yy')}}</td>
+                        
+                {% endfor %}
+                <td>{{ enfant.smi }} </td>
+                 <td>{{ enfant.nom }} {{ enfant.prenom }}</td>                
+                <td>{{ enfant.sexe }}</td>
+                <td>{{ enfant.dateNaissance ? enfant.dateNaissance|date('Y-m-d') : '' }}</td>                             
+                <td>{{ enfant.accouchement }}</td>                
+                <td>{{ enfant.durreeAllaitement }}</td>
+               
+                {% for consultation in enfant.consultations %}
+                         <td class="table-info">{{consultation.centreSoins}}</td>
+                        <td class="table-info">{{consultation.age}}</td>
+                        <td class="table-info">{{consultation.poids}}</td>
+                        <td class="table-info">{{consultation.Taille}}</td>
+                        {% if consultation.retard =="Oui"  %}
+                            <td class="table-danger">{{consultation.retard}}</td>
+                             <td class="table-danger">{{consultation.retardgrave}}</td>
+                        {% else %}
+                             <td >{{consultation.retard}}</td>
+                             <td >{{consultation.retardgrave}}</td>
+                        {% endif %}     
+                        
+                {% endfor %}
+                
+                            
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+     {{ knp_pagination_render(enfants) }} 
+{% endblock %}

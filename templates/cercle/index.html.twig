@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cercle {% endblock %}
+
+{% block body %}
+    <h1>Gestion Cercle</h1>
+    <a class="btn btn-outline-success"  href="{{ path('cercle_new') }}">Ajout Cercle</a>
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+               
+                <th>Cercle</th>
+                <th>Commune</th>
+                <th>Region</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cercle in cercles %}
+            <tr>
+                
+                <td>{{ cercle.nom }}</td>
+                <td>{{ cercle.commune }}</td>
+                <td>{{ cercle.region }}</td>
+                <td>
+                    <a class="btn btn-outline-success"  href="{{ path('cercle_show', {'id': cercle.id}) }}">Afficher</a>
+                    <a class="btn btn-outline-success" href="{{ path('cercle_edit', {'id': cercle.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

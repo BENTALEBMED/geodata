@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Données Enfant{% endblock %}
+
+{% block body %}
+    <h1>Modifier Données Enfant</h1>
+     {{ include('enfant/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+   
+    <a class="btn btn-outline-success" href="{{ path('enfant_index') }}">Retour à la Liste</a>
+
+    {{ include('enfant/_delete_form.html.twig') }}
+{% endblock %}

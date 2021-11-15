@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Enfant{% endblock %}
+
+{% block body %}
+    
+     
+    <h3>Enfant</h3>
+    <table class="table   table-striped">
+        <tbody>           
+            <tr>
+                <th>SMI</th>
+                <td>{{ enfant.smi }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ enfant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ enfant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ enfant.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Date Naissance</th>
+                <td>{{ enfant.dateNaissance ? enfant.dateNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Cin Pere/Mere</th>
+                <td>{{ enfant.cinPereMere }}</td>
+            </tr>           
+            <tr>
+                <th>Accouchement</th>
+                <td>{{ enfant.accouchement }}</td>
+            </tr>
+            <tr>
+                <th>Durrée Allaitement</th>
+                <td>{{ enfant.durreeAllaitement }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+   <h3>les Mesures</h3>
+       <table class="table table-striped">
+   
+        <tr>
+           <th>Date Consultation</th>
+           <th>Poids</th>
+           <th>Taille</th>
+           <th>Motif</th>  
+            <th>retard</th>  
+            <th>retard Grave</th>       
+        </tr>
+        
+
+    {% for consultation in enfant.consultations %}
+        {%  if consultation.retard == "Non" %}
+         <tr class="bg-success text-white">
+         {% else  %}
+         <tr class="bg-danger text-white">
+        {% endif %} 
+         <td>{{consultation.dateConsultation|date('Y-m-d')}}</td>
+         <td>{{consultation.poids}}</td>
+         <td>{{consultation.Taille}}</td>
+         <td>{{consultation.Motif}}</td>
+         <td>{{consultation.retard}}</td>
+         <td>{{consultation.retardgrave}}</td>
+         </tr>
+    {% endfor %}
+      </table>
+
+        {% if message is defined %}
+        <div class="alert alert-error" align="center">
+         {{ message }}
+         message
+        </div>
+     {% endif %}
+    
+{% endblock %}

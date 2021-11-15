@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Standards index{% endblock %}
+
+{% block body %}
+    <h1>Standards OMS</h1>
+
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+               
+                <th>Year_Month</th>
+                <th>Sexe</th>
+                <th>Jours</th>
+                <th>Month</th>
+                <th>L</th>
+                <th>M</th>
+                <th>S</th>
+                <th>Sd</th>
+                <th>-3sd</th>
+                <th>-2sd</th>
+                <th>-1sd</th>
+                <th>Median</th>
+                <th>+1sd</th>
+                <th>+2sd</th>
+                <th>+3sd</th>
+                <th>B (Courbe -2SD)</th>
+                <th>A (Courbe -2SD)</th>
+                <th>B (Courbe -3SD)</th>
+                <th>A (Courbe -3SD)</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for standard in standards %}
+            <tr>
+               
+                <td>{{ standard.yearMonth }}</td>
+                <td>{{ standard.sexe }}</td>
+                <td>{{ standard.jours }}</td>
+                <td>{{ standard.month }}</td>
+                <td>{{ standard.l }}</td>
+                <td>{{ standard.m }}</td>
+                <td>{{ standard.s }}</td>
+                <td>{{ standard.sd }}</td>
+                <td>{{ standard.n3sd }}</td>
+                <td>{{ standard.n2sd }}</td>
+                <td>{{ standard.n1sd }}</td>
+                <td>{{ standard.median }}</td>
+                <td>{{ standard.p1sd }}</td>
+                <td>{{ standard.p2sd }}</td>
+                <td>{{ standard.p3sd }}</td>
+                <th>{{ standard.B2sd}}</th>
+                <th>{{ standard.A2sd }}</th>
+                <th>{{ standard.B3sd }}</th>
+                <th>{{ standard.A3sd }}</th>
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="16">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

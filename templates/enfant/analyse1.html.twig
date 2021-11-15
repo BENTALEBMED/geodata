@@ -1,0 +1,275 @@
+{% extends 'base.html.twig' %}
+{% block title %}Analyse{% endblock %}
+{% block stylesheets %}
+    
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+   {% endblock %}
+
+   {% block body %}
+  <!-------------------------------- indicateurs globaux ------------------------->
+<div align="center">
+	<div class="card" style="width:60%">
+		<h5 class="card-header" align="left" style="background-color:#CCCCCC; color:#000000; font-weight:bold; font-size:17px;">Indicateur globaux</h5>
+		<div class="card-body">
+			<table width="50%" border="1">
+				<tr>
+					<td rowspan="2"></td>
+					<td colspan="2"><div align="center" style="font-weight:bold;">Retards de croissance </div></td>
+				</tr>
+				<tr>
+					<td width="30%"><div align="center" style="font-weight:bold;">Nombre</div></td>
+					<td width="30%"><div align="center" style="font-weight:bold;">Taux</div></td>
+				</tr>
+				<tr>
+					<td ><div align="center" style="font-weight:bold;">Féminin</div></td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">120</div></td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">3%</div></td>
+				</tr>
+				<tr>
+					<td><div align="center" style="font-weight:bold;">Masculin</div</td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">160</div></td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">5,6%</div></td>
+				</tr>
+				<tr>
+					<td><div align="center" style="font-weight:bold;">Total</div</td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">280</div></td>
+					<td><div align="center" style="font-weight:bold; color:#993300;">4,3%</div></td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</div>
+
+<!-------------------------------- Retard par sexe ------------------------->
+<br/>
+<div align="center">
+	<div class="card" style="width:60%">
+		<h5 class="card-header" align="left" style="background-color:#CCCCCC; color:#000000; font-weight:bold; font-size:17px;">Retard de croissance des enfants par sexe</h5>
+		<div class="card-body">
+		<div align="center" id="Retard_par_sexe" style="height: 150px; width: 80%;"> </div>
+		</div>
+	</div>
+</div>
+
+<!-------------------------------- Retard par province ------------------------->
+<br/>
+<div align="center">
+	<div class="card" style="width:60%">
+		<h5 class="card-header" align="left" style="background-color:#CCCCCC; color:#000000; font-weight:bold; font-size:17px;">Retard de croissance des enfants par province</h5>
+		<div class="card-body">
+		<div align="center" id="Retard_par_province" style="height: 150px; width: 80%;"> </div>
+		</div>
+	</div>
+</div>
+
+<!-------------------------------- Retard par cercle ------------------------->
+<br/>
+<div align="center">
+	<div class="card" style="width:60%">
+		<h5 class="card-header" align="left" style="background-color:#CCCCCC; color:#000000; font-weight:bold; font-size:17px;">Retard de croissance des enfants par cercle</h5>
+		<div class="card-body">
+		<div align="center" id="Retard_par_cercle" style="height: 150px; width: 80%;"> </div>
+		</div>
+	</div>
+</div>
+
+
+<!-------------------------------- Retard par douar ------------------------->
+<br/>
+<div align="center">
+	<div class="card" style="width:60%">
+		<h5 class="card-header" align="left" style="background-color:#CCCCCC; color:#000000; font-weight:bold; font-size:17px;">Retard de croissance des enfants par cercle</h5>
+		<div class="card-body">
+		<div align="center" id="Retard_par_douar" style="height: 150px; width: 80%;"> </div>
+		</div>
+	</div>
+</div>
+
+<br/><br/>
+	{% endblock %}
+
+     {% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+window.onload = function() {
+
+<!-------------------------------- Retard par sexe ------------------------->
+var options = {
+          series:  [35, 65],
+          chart: {
+          width: 400,
+          type: 'pie',
+        },
+        labels:  ['Feminin', 'Masculin'],
+        responsive: [{
+          breakpoint: 600,
+          options: {
+            chart: {
+              width: 1000
+            },
+            
+            }
+          }],
+          legend: {
+				show: true,
+				position: "top",
+				containerMargin: {
+				top: 30
+				}
+        }
+        };
+        var chart = new ApexCharts(document.querySelector("#Retard_par_sexe"), options);
+        chart.render();
+		
+		
+		<!-------------------------------- Retard par province ------------------------->
+      var options = {
+          series:  [30, 30,40],
+          chart: {
+          width: 400,
+          type: 'pie',
+        },
+        labels:  ['AL HAOUZ', 'MEDILT','AZILAL'],
+        responsive: [{
+          breakpoint: 600,
+          options: {
+            chart: {
+              width: 1000
+            },
+            
+            }
+          }],
+          legend: {
+				show: true,
+				position: "top",
+				containerMargin: {
+				top: 30
+				}
+        }
+        };
+        var chart = new ApexCharts(document.querySelector("#Retard_par_province"), options);
+        chart.render();
+		
+		
+		<!-------------------------------- Retard par cercle ------------------------->
+      var options = {
+          series:  {{nombreretard|raw}},
+          chart: {
+          width: 400,
+          type: 'pie',
+        },
+        labels:  {{nomcercle|raw}},
+        responsive: [{
+          breakpoint: 600,
+          options: {
+            chart: {
+              width: 1000
+            },
+            
+            }
+          }],
+          legend: {
+				show: true,
+				position: "top",
+				containerMargin: {
+				top: 30
+				}
+        }
+        };
+        var chart = new ApexCharts(document.querySelector("#Retard_par_cercle"), options);
+        chart.render();
+		
+		
+		<!-------------------------------- Retard par douar ------------------------->
+		var options = {
+          series: [{
+          name: 'Servings',
+          data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
+        }],
+          annotations: {
+          points: [{
+            x: 'Bananas',
+            seriesIndex: 0,
+            label: {
+              borderColor: '#775DD0',
+              offsetY: 0,
+              style: {
+                color: '#fff',
+                background: '#775DD0',
+              },
+              text: 'Bananas are good',
+            }
+          }]
+        },
+        chart: {
+          height: 350,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            columnWidth: '50%',
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          width: 2
+        },
+        
+        grid: {
+          row: {
+            colors: ['#fff', '#f2f2f2']
+          }
+        },
+        xaxis: {
+          labels: {
+            rotate: -45
+          },
+          categories: ['Aguersioual', 'Ait Souka', 'Amssakrou', 'Anfalkou', 'Arg', 'Arghan',
+            'Asselda', 'Imi Oughlad', 'Ouanskra', 'Tadmamt', 'Talat Nchaoute', 'Tamaterte', 'Talat Nchaoute'
+          ],
+          tickPlacement: 'on'
+        },
+        yaxis: {
+          title: {
+            text: 'Taux de retard de croissance',
+          },
+        },
+        fill: {
+          type: 'gradient',
+          gradient: {
+            shade: 'light',
+            type: "horizontal",
+            shadeIntensity: 0.25,
+            gradientToColors: undefined,
+            inverseColors: true,
+            opacityFrom: 0.85,
+            opacityTo: 0.85,
+            stops: [50, 0, 100]
+          },
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#Retard_par_douar"), options);
+        chart.render();
+      
+      
+    
+}
+</script>
+
+     {% endblock %}
+ 
+
+
+
+
+       
+      

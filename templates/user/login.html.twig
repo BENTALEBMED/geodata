@@ -1,0 +1,92 @@
+{% extends 'baselogin.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}Formulaire Connexion{% endblock %}
+
+{% block body %}
+<section class="section">
+<div class="row">
+  <div class="col-lg-6">
+  {% if message is defined   %}
+<div class="alert alert-warning d-flex align-items-center" role="alert">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+<path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg>
+<div>
+ {{message}}
+
+</div>
+</div>
+  
+{% endif   %}
+    
+        <div class="d-flex justify-content-center py-4">
+        <a href="#" class="logo d-flex align-items-center w-auto">
+        <img src="{{ asset('assets/img/logo.png')}}" alt="">
+        <span class="d-none d-lg-block"></span>
+        </a>
+        </div><!-- End Logo -->
+
+
+      <div class="card mb-3">
+        <div class="card-body">
+      <div class="pt-4 pb-2">
+        <h5 class="card-title text-center pb-0 fs-4">Connexion</h5>
+        <p class="text-center small">Votre Compte & Mot de Passe</p>
+      </div>
+      {{ form_start(form) }}
+     
+     
+      {# Génération manuelle et éclatée : #}
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.compte, "Compte Utilisateur :", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.compte) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.compte, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.motpasse, "Mot de Passe :", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.motpasse) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.motpasse, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+
+      <br>
+      <br>
+      <div align="center">
+      <button class="btn btn-success" >{{ button_label|default('Connexion') }}</button>
+      </div>
+      {{ form_end(form) }}
+  
+      </div>
+    </div> 
+        
+    <div class="copyright" align="center">
+      &copy; Copyright <strong><span>GeoData</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits" align="center">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      
+    </div>
+ 
+
+  </div>
+</div>               
+     
+
+
+
+       
+{% endblock %}

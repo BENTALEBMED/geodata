@@ -1,0 +1,53 @@
+{{ form_start(form) }}
+   
+
+      {# Génération manuelle et éclatée : #}
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.nom, "Nom (du parent) :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nom) }}
+            <div class="col-sm-3">
+                {# Génération de l'input. #}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.prenom, "Prénom (du parent):", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.prenom) }}
+            <div class="col-sm-3">
+                {# Génération de l'input. #}
+                {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.age, "Age ou Date Naissance(Mère):", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.age) }}
+            <div class="col-sm-1">
+                {# Génération de l'input. #}
+                {{ form_widget(form.age, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+       
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.tel, "Télephone :", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.tel) }}
+            <div class="col-sm-2">
+                {# Génération de l'input. #}
+                {{ form_widget(form.tel, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+       
+   
+    <button class="btn btn-outline-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Douar index{% endblock %}
+
+{% block body %}
+    <h5>Liste des Douars</h5>
+    
+    
+    <hr>
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                
+                
+                <th>Cercle</th>
+                <th>Commune</th>
+                <th>Nom Douar</th> 
+                 <th>Type</th>              
+                <th>Latitude</th>
+                <th>Longitude</th>
+               
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for douar in douars %}
+            <tr>
+               
+               
+                <td>{{ douar.cercle }}</td>
+                <td>{{ douar.commune }}</td>
+                <td class="table-success">{{ douar.nom }}</td>
+                <td>{{ douar.type }}</td>
+                <td>{{ douar.latitude }}</td>
+                <td>{{ douar.longitude }}</td>
+                
+                
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

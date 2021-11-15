@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Douar{% endblock %}
+
+{% block body %}
+    <h1>Douar</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ douar.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ douar.nom }}</td>
+            </tr>
+            <tr>
+                <th>Cercle</th>
+                <td>{{ douar.cercle }}</td>
+            </tr>
+             <tr>
+                <th>Commune</th>
+                <td>{{ douar.commune }}</td>
+            </tr>
+            <tr>
+                <th>Province</th>
+                <td>{{ douar.province }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ douar.region }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ douar.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ douar.longitude }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('douar_index') }}">back to list</a>
+
+    <a href="{{ path('douar_edit', {'id': douar.id}) }}">edit</a>
+
+    {{ include('douar/_delete_form.html.twig') }}
+{% endblock %}

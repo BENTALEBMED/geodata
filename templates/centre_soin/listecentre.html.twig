@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CentreSoin index{% endblock %}
+
+{% block body %}
+    <h1>Liste Centre Soins</h1>
+   
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+                 <th>Commune</th>
+                <th>Nom</th>
+                <th>Type</th>
+               
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_soin in centre_soins %}
+            <tr>
+                <td>{{ centre_soin.commune }}</td>
+                <td>{{ centre_soin.nom }}</td>
+                <td>{{ centre_soin.type }}</td>
+                
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

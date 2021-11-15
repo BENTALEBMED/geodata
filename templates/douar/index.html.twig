@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Douar index{% endblock %}
+
+{% block body %}
+    <h5>Gestion Douars</h5>
+    
+    <a class="btn btn-outline-success" href="{{ path('douar_new') }}">Ajouter</a>
+    <hr>
+    <table class="table  table-striped">
+        <thead>
+            <tr>
+               
+                <th>Nom Douar</th>
+                <th>Cercle</th>
+                <th>Commune</th>
+                <th>Province</th>
+                <th>Region</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for douar in douars %}
+            <tr>
+             
+                <td>{{ douar.nom }}</td>
+                <td>{{ douar.cercle }}</td>
+                <td>{{ douar.commune }}</td>
+                <td>{{ douar.province }}</td>
+                <td>{{ douar.region }}</td>
+                <td>{{ douar.latitude }}</td>
+                <td>{{ douar.longitude }}</td>
+                <td>{{ douar.type }}</td>
+                <td>
+                    <a class="btn btn-outline-success" href="{{ path('douar_show', {'id': douar.id}) }}">Afficher</a>
+                    <a class="btn btn-outline-danger" href="{{ path('douar_edit', {'id': douar.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

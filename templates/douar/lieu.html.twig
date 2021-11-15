@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lieu prise mesures{% endblock %}
+
+{% block body %}
+    <h1>Lieu Prise mesures</h1>
+     {{ form_start(form) }}
+
+
+      {# Génération manuelle et éclatée : #}
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.cercle, "Cercle", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.cercle) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.cercle, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.commune, "Commune", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.commune) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.commune, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            {# Génération du label. #}
+            {{ form_label(form.nom, "Nom douar", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nom) }}
+            <div class="col-sm-5">
+                {# Génération de l'input. #}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+
+  
+    <button class="btn btn-outline-success">{{ button_label|default('Valider') }}</button>
+{{ form_end(form) }}
+{% endblock %}
